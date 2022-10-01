@@ -42,8 +42,8 @@ public class PersonJdbcDao {
 	    
 	    public int  insertPerson(Person person){
 	    	return jdbcTemplate.update(
-   						"Insert Into Person(id, name, location, birth_date) "
-			                      + " valuse(?, ? ,? ,?);",
+   						"insert into person(id, name, location, birth_date) "
+			                      + "values(?, ? ,? ,?);",
     									new Object[] { 
     											person.getId(), 
     											person.getName(), 
@@ -53,9 +53,9 @@ public class PersonJdbcDao {
 
 	    public int  updatePerson(Person person){
 	    	return jdbcTemplate.update(
-   						"update Person "
-			                      + " set name = ?, set location = ?, set birth_date = ? "
-			                      + " wehere  id = ? ",
+   						"update person "
+			                      + " set name = ?, location = ?, birth_date = ? "
+			                      + " where id = ? ",
     									new Object[] {  
     											person.getName(), 
     											person.getLocation(), 
